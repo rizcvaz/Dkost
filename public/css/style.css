@@ -1,0 +1,119 @@
+/* General Style */
+body {
+  font-family: Arial, sans-serif;
+}
+.navbar-brand {
+  font-weight: bold;
+  color: #3366FF;
+}
+
+.slider {
+  margin-top: -50px; /* Sesuaikan angka ini */
+  /* Atau */
+  /* transform: translateY(-20px); */
+}
+
+
+/* Styling dasar untuk kartu */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  border: 2px solid #ddd; /* Garis tepi */
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease; /* Animasi perubahan */
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.card h4 {
+  margin: 10px 0;
+}
+
+.card p {
+  color: #333;
+}
+
+/* Styling khusus untuk kartu tengah */
+.card.center-card {
+  border: 2px solid #007bff; /* Garis biru lebih mencolok */
+  transform: scale(1.05); /* Perbesar sedikit kartu tengah */
+}
+
+.card.center-card p {
+  background-color: #007bff;
+  color: white; /* Warna teks putih */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.carousel-card {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.carousel-card img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+.carousel-card h5 {
+  color: #3366FF;
+  font-weight: bold;
+}
+.carousel-card p {
+  font-size: 14px;
+}
+.owl-carousel .owl-nav button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #3366FF !important;
+  color: #fff !important;
+  border-radius: 50%;
+}
+.owl-carousel .owl-nav button.owl-prev {
+  left: -25px;
+}
+.owl-carousel .owl-nav button.owl-next {
+  right: -25px;
+}
+.slider .owl-item.active.center .slider-card {
+  transform: scale(1.15);
+  opacity: 1;
+  background: #4872d4;
+  background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966);
+  background: linear-gradient(to bottom, #4872d4, #2155cd);
+  color: #fff;
+}
+.slider-card {
+  background: #fff;
+  padding: 0px 0px;
+  margin: 50px 15px 90px 15px;
+  border-radius: 5px;
+  box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
+  transform: scale(0.9);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carousel-card p {
+      font-size: 12px;
+  }
+  .navbar-brand {
+      font-size: 18px;
+  }
+}
