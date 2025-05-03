@@ -62,6 +62,9 @@
             <a href="{{ route('home') }}">
               <i class="bx bx-home" style="margin-right: 6px;"></i>Home
             </a>
+            <a href="{{ route('cari-kamar') }}">
+              <i class="bx bx-search" style="margin-right: 6px;"></i>Cari Kamar
+            </a>
             <a href="{{ route('about') }}">
               <i class="bx bx-info-circle" style="margin-right: 6px;"></i>About
             </a>
