@@ -397,7 +397,7 @@ html, body {
    ==================================== */
 
    body {
-    background-color: #1c1c26; /* soft dark */
+    background:linear-gradient(180deg, #1f1f2e, #2c2c3a);
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
