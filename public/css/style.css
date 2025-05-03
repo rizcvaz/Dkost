@@ -1,0 +1,466 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* overflow: hidden; Mencegah scroll */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #272734;
+    border-bottom: 1px solid #3c3c4f;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.4s ease;
+  }
+  
+  /* Underline animasi */
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, #ff8ae2, #8f68ff, #00c9ff);
+    transition: width 0.4s ease;
+  }
+  
+  /* Hover effect */
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Optional: text gradient on hover */
+  .nav-links li a:hover {
+    background: linear-gradient(90deg, #ff8ae2, #8f68ff, #00c9ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .login-btn {
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #6a50c7, #a74c99, #0088aa); /* lebih gelap */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 6px rgba(106, 80, 199, 0.3);
+  }
+  
+  /* Hover effect */
+  .login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(106, 80, 199, 0.5), 0 0 18px rgba(0, 136, 170, 0.4);
+  }
+  
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #ccc; /* diganti agar terlihat di background gelap */
+    margin: 4px 0;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+  }
+  
+  .hamburger:hover span {
+    background: #00c9ff; /* efek hover biru soft */
+  }
+  
+  /* Mobile menu background */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    background: #1c1c26; /* dark soft */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    z-index: 200;
+    transition: transform 0.3s ease;
+  }
+  
+  .mobile-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .mobile-menu a:hover {
+    color: #00c9ff; /* glow hover */
+  }
+  
+  /* Tombol close */
+  .close-btn {
+    font-size: 45px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: inline-block;
+    transition: transform 0.4s ease;
+    transform-origin: center center; /* penting agar berputar di tengah */
+  }
+  
+  .close-btn:hover {
+    transform: rotate(45deg);
+  }
+  
+  
+  
+  /* Tombol login di mobile */
+  .login-mobile {
+    display: block;
+    margin-top: 30px;
+    padding: 10px;
+    background: linear-gradient(90deg, #6a50c7, #a74c99, #0088aa);
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 0 8px rgba(106, 80, 199, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .login-mobile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(106, 80, 199, 0.6), 0 0 16px rgba(0, 136, 170, 0.4);
+  }
+  
+  .landing {
+    height: 100vh;
+    background: linear-gradient(180deg, #1f1f2e, #2c2c3a);
+    color: #ffffff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo-animation {
+    width: 120px;
+    animation: bounce 2s infinite;
+  }
+  
+  .tagline {
+    font-size: 2em;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    background: linear-gradient(90deg,
+        #ff3cac,
+        #784ba0,
+        #2b86c5,
+        #784ba0,
+        #ff3cac);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 4s linear infinite alternate;
+}
+
+@keyframes animate-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .mobile-menu.show {
+      display: block;
+    }
+  }
+
+  /* Autentikasi (login & register) */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .popup-container {
+    width: 90%;
+    max-width: 300px;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .glass {
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 45px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .form-box {
+    display: none;
+  }
+  
+  .form-box.active {
+    display: block;
+  }
+  
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 8px;
+    color: white;
+  }
+  
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+  }
+  
+  .action-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .input-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .input-group input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-bottom: 2px solid #ddd;
+    border-radius: 5px;
+    color: #fff;
+    transition: 0.3s ease;
+  }
+  .input-group input:focus {
+    outline: none;
+    border-bottom-color: #33c1ff;
+    box-shadow: 0 4px 10px rgba(51, 193, 255, 0.3);
+  }
+  .input-group label {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    color: #ccc;
+    pointer-events: none;
+    transition: 0.2s ease all;
+  }
+  .input-group input:focus + label,
+  .input-group input:not(:placeholder-shown):valid + label {
+    top: -10px;
+    left: 35px;
+    font-size: 12px;
+    color: #33c1ff;
+  }
+  
+  .input-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+  }
+  
+  .popup-btn {
+    width: 100%;
+    background: #33c1ff;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .popup-btn:hover {
+    background: #1aa6e9;
+    box-shadow: 0 0 10px rgba(26, 166, 233, 0.4);
+  }
+  
+  .form-icon {
+    color: #33c1ff;
+    margin-bottom: 10px;
+  }
+  
+  
+  @media screen and (max-width: 480px) {
+    .popup-container {
+      padding: 20px;
+      font-size: 14px;
+    }
+  }
+  
+  /* ====================================
+   Halaman Cari Kamar
+   ==================================== */
+
+   body {
+    background-color: #1c1c26; /* soft dark */
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+   .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    background: transparent;
+  }
+  
+  /* Grid layout */
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  /* Card product */
+  .product {
+    text-align: center;
+    padding: 2rem;
+    background: #ffff; /* card dark */
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+    transition: 0.5s ease;
+    cursor: pointer;
+    outline: 3px solid #2a2a2a;
+    outline-offset: -1rem;
+  }
+  
+  .product:hover {
+    outline: 1px solid #00ff99;
+    outline-offset: 0rem;
+    transform: translateY(-5px);
+  }
+  
+  .product img {
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .product h3 {
+    font-size: 1rem;
+    color: #111010;
+    margin-bottom: 1rem;
+  }
+  
+  .product .price {
+    font-size: 1.2rem;
+    color: #00ff99;
+  }
+  .product .status {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #aaa;
+  }
+  
+  
+
+
+
+  
