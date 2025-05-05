@@ -458,6 +458,65 @@ html, body {
     font-weight: 500;
     color: #aaa;
   }
+
+
+  /* Halaman About */
+
+  .about-container {
+    background:linear-gradient(180deg, #1f1f2e, #2c2c3a);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-title {
+    color: #fff;;
+    font-size: 2.5rem;
+}
+
+.about-description {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.about-subtitle {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-text {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.about-list {
+    padding-left: 1.5rem;
+}
+
+.about-list-item {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.about-contact-title {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.about-contact-text {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.about-contact-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.about-contact-link:hover {
+    text-decoration: underline;
+}
   
   
 
