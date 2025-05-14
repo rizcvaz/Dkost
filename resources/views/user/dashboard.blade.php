@@ -1,2 +1,3 @@
-<h1>Welcome : {{ auth()->user()->name }}</h1>
+@extends('layouts.app')
+
 <a href="{{ route('logout') }}">Logout</a>

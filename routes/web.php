@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\Admin\KamarController;
+use App\Http\Controllers\CariKamarController;
 
 // Landing Page (Home)
 Route::get('/', function () {
@@ -53,7 +54,7 @@ Route::middleware(['auth', RoleMiddleware::class.':admin'])->prefix('admin')->gr
 Route::get('/cari-kamar', function () {
     return view('cari-kamar');
 });
-use App\Http\Controllers\CariKamarController;
+
 
 Route::get('/cari-kamar', [CariKamarController::class, 'index'])->name('cari-kamar');
 

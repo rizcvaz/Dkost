@@ -518,8 +518,48 @@ html, body {
     text-decoration: underline;
 }
   
-  
+/* css halaman services */
+.services-section {
+  padding: 60px 20px;
+  background:linear-gradient(180deg, #1f1f2e, #2c2c3a);
+  text-align: center;
+}
 
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: whitesmoke;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* css halaman contact */
+
+.contact {
+  padding: 50px 20px;
+  background:linear-gradient(180deg, #1f1f2e, #2c2c3a);
+  text-align: center;
+}
+
+.contact .sosmed a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #333;
+  font-size: 50px; /* Hapus spasi! */
+  transition: color 0.3s ease;
+}
+
+
+.contact .sosmed a:hover {
+  color: #007bff;
+}
 
 
   
