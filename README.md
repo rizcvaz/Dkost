@@ -19,7 +19,7 @@
 | Safir Al Silmi           | 42421079  | Tester             |
 
     
-## 🚀 Cara Install Project
+### 🚀 Cara Install Project
 
 #### Pastikan sudah menggunakan PHP versi >= 8.3
 
