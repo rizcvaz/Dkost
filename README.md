@@ -45,6 +45,7 @@ php artisan db:seed
 
 # Jalankan server lokal
 php artisan serve
+```
 
 ## Fungsi Fitur-Fitur Sistem Kosan
 
