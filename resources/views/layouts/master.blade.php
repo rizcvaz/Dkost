@@ -46,11 +46,30 @@
             <i class='bx bx-envelope' style="margin-right: 6px;"></i>Contact
           </a>
         </li>
+       @auth
+  <li>
+    <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : url('/user/dashboard') }}">
+      <i class='bx bx-user-circle' style="margin-right: 6px;"></i>Dashboard
+    </a>
+  </li>
+@endauth
+
+
       </ul>
       <div class="nav-right">
-        <button class="login-btn" onclick="openPopup('login')">
-          <i class='bx bx-log-in-circle' style="margin-right: 6px;"></i>Login
-        </button>         
+        @auth
+  <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" class="login-btn" style="background-color: #dc3545;">
+      <i class='bx bx-log-out-circle' style="margin-right: 6px;"></i>Logout
+    </button>
+  </form>
+@else
+  <button class="login-btn" onclick="openPopup('login')">
+    <i class='bx bx-log-in-circle' style="margin-right: 6px;"></i>Login
+  </button>
+@endauth
+         
         <div class="hamburger" id="hamburger">
           <span></span><span></span><span></span>
         </div>
@@ -74,6 +93,12 @@
             <a href="{{ route('contact') }}">
               <i class='bx bx-envelope' style="margin-right: 6px;"></i>Contact
             </a>
+            @auth
+          <a href="#">
+            <i class='bx bx-user-circle' style="margin-right: 6px;"></i>Dashboard
+          </a>
+            @endauth
+
         </ul>
         <a class="login-mobile" onclick="openPopup('login')">Login</a> 
       </div>      

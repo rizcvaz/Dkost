@@ -287,6 +287,10 @@ html, body {
   .form-box {
     display: none;
   }
+
+  .form-box h2 {
+  text-align: center;
+}
   
   .form-box.active {
     display: block;

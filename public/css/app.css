@@ -651,7 +651,7 @@ body{
 }
 
 .table tbody tr:hover {
-    background-color: var(--light-primary);
+    background: grey;
 }
 
 .status {
