@@ -7,6 +7,45 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## 👥 Project Team
+
+| Name                     | NIM       | Role               |
+|--------------------------|-----------|--------------------|
+| Moh. Rizki Risaleh       | 42422024  | Team Leader        |
+| Muhammad Ridwan          | 42422040  | UI/UX Designer     |
+| Reza Husnil Khuluqi      | 42422048  | Database Specialist|
+| Aditya Bangun Senjaya    | 42422052  | Frontend Developer |
+| Ahdi Tri Julianto        | 42422058  | Backend Developer  |
+| Safir Al Silmi           | 42421079  | Tester             |
+
+    
+## 🚀 Cara Install Project
+
+```bash
+# Pastikan sudah menggunakan PHP versi >= 8.3
+
+# Clone repositori
+git clone https://github.com/rizcvaz/Dkost.git
+cd Dkost
+
+# Install dependencies
+composer install
+
+# Salin file konfigurasi environment
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+
+# Jalankan migrasi database
+php artisan migrate
+
+# Seed database dengan data awal
+php artisan db:seed
+
+# Jalankan server lokal
+php artisan serve
+
 ## Fungsi Fitur-Fitur Sistem Kosan
 
 Berikut adalah rincian fungsi-fungsi yang tersedia dalam sistem D’Kost:
