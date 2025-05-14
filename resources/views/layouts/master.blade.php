@@ -58,7 +58,7 @@
       </ul>
       <div class="nav-right">
         @auth
-  <form method="POST" action="{{ route('logout') }}">
+  <form action="{{ route('logout') }}">
     @csrf
     <button type="submit" class="login-btn" style="background-color: #dc3545;">
       <i class='bx bx-log-out-circle' style="margin-right: 6px;"></i>Logout

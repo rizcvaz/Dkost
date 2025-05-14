@@ -14,14 +14,14 @@
 
     <!-- Sidebar -->
     <div class="sidebar close">
-        <a href="#" class="logo">
+        <a href="{{ route('home') }}" class="logo">
             <i class='bx bx-code-alt'></i>
-            <div class="logo-name"><span>De</span>Kost</div>
+            <div class="logo-name"><span>De'</span>Kost</div>
         </a>
         <ul class="side-menu">
         <li><a href="#"><i class='bx bx-home'></i> <span>Beranda</span></a></li>
         <li><a href="{{ route('kamar.index') }}"><i class='bx bx-bed'></i> <span>Kamar Kost</span></a></li>
-        <li><a href="#"><i class='bx bx-group'></i> <span>Penghuni Kost</span></a></li>
+        <li><a href="{{ route('penghuni.index') }}"><i class='bx bx-group'></i> <span>Penghuni Kost</span></a></li>
         <li><a href="#"><i class='bx bx-receipt'></i> <span>Tagihan</span></a></li>
         <li><a href="#"><i class='bx bx-line-chart'></i> <span>Laporan</span></a></li>
         <li><a href="#"><i class='bx bx-message-square-dots'></i> <span>Komplain</span></a></li>

@@ -7,6 +7,7 @@
     <div class="products-container">
         @foreach ($kamar as $k)
         <div class="product"
+            data-id="{{ $k->id }}"
              data-nomor="{{ $k->nomor_kamar }}"
              data-status="{{ $k->status }}"
              data-harga="{{ number_format($k->harga, 0, ',', '.') }}"
@@ -41,10 +42,7 @@
             <div class="info-item"><strong>Lantai:</strong><br><span id="modal-lantai"></span></div>
             <div class="fasilitas-item"><strong>Fasilitas:</strong><br><span id="modal-fasilitas"></span></div>
         </div>
-
-
         <button id="btn-pesan" class="btn-pesan">Pesan Sekarang</button>
-
         </div>
 
 
@@ -93,7 +91,7 @@
     font-size: 13px;
     text-align: left;
 }
-.close-btn {
+.close {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -134,8 +132,10 @@
 </style>
 
 <script>
+    let selectedKamarId = null;
     document.querySelectorAll('.product').forEach((card) => {
         card.addEventListener('click', () => {
+            selectedKamarId = card.dataset.id;
             document.getElementById('modal-title').textContent = `Kamar ${card.dataset.nomor}`;
             document.getElementById('modal-status').textContent = card.dataset.status;
             document.getElementById('modal-harga').textContent = card.dataset.harga;
@@ -170,14 +170,18 @@ if (status.toLowerCase() === 'tersedia') {
 <script>
     const isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
 
-    document.getElementById('btn-pesan').addEventListener('click', function () {
-        if (!isLoggedIn) {
-            openPopup('login'); // langsung buka popup login
+document.getElementById('btn-pesan').addEventListener('click', function () {
+    if (!isLoggedIn) {
+        openPopup('login');
+    } else {
+        if (selectedKamarId) {
+            window.location.href = `/pesan-kamar/${selectedKamarId}`;
         } else {
-            // Aksi jika user sudah login (redirect, atau proses booking)
-            alert("Lanjut ke proses pemesanan..."); // bisa ganti dengan redirect atau AJAX
+            alert('Terjadi kesalahan: kamar belum dipilih.');
         }
-    });
+    }
+});
+
 </script>
 
 @endsection
