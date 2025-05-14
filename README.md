@@ -21,29 +21,39 @@
     
 ## 🚀 Cara Install Project
 
-```bash
 # Pastikan sudah menggunakan PHP versi >= 8.3
 
 # Clone repositori
+```bash
 git clone https://github.com/rizcvaz/Dkost.git
 cd Dkost
+```
 
 # Install dependencies
+```bash
 composer install
+```
 
 # Salin file konfigurasi environment
+```bash
 cp .env.example .env
-
+```
 # Generate application key
+```bash
 php artisan key:generate
+```
 
 # Jalankan migrasi database
+```bash
 php artisan migrate
-
+```
 # Seed database dengan data awal
+```bash
 php artisan db:seed
+```
 
 # Jalankan server lokal
+```bash
 php artisan serve
 ```
 
