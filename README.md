@@ -7,6 +7,36 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Funngsi Fitur-Fitur Sistem Kosan
+
+Berikut adalah rincian fungsi-fungsi yang tersedia dalam sistem D’Kost:
+1.	Login & Registrasi
+Pengguna dapat membuat akun baru dan masuk ke dalam sistem sesuai peran (admin atau user). Sistem akan melakukan validasi data login agar hanya pengguna terdaftar yang dapat mengakses fitur.
+
+2.	Dashboard Admin
+Menampilkan ringkasan data kamar, tagihan, penghuni, laporan, dan notifikasi terkait komplain atau pengajuan. Admin dapat mengakses seluruh fitur manajemen sistem.
+
+3.	Dashboard User
+Menampilkan informasi tagihan, status kamar yang dihuni, serta menu untuk pengajuan sewa atau pengiriman komplain.
+
+4.	Manajemen Data Kamar
+Admin dapat menambahkan, mengedit, dan menghapus data kamar kos, termasuk data fasilitas, harga sewa, dan status ketersediaan.
+
+5.	Manajemen Data Penghuni
+Admin dapat melihat daftar penghuni aktif lengkap dengan informasi kamar dan status pembayaran sewa.
+
+6.	Pengelolaan Tagihan
+Admin membuat dan mengelola tagihan sewa secara bulanan. Pengguna dapat melihat detail tagihan dan melakukan pembayaran secara online.
+
+7.	Laporan Pembayaran
+Admin dapat melihat dan mengunduh laporan pembayaran berdasarkan bulan dan tahun dalam bentuk PDF atau Excel.
+
+8.	Komplain
+Pengguna dapat mengirimkan komplain terkait fasilitas kos melalui sistem. Admin dapat membaca, memproses, dan menyelesaikan komplain tersebut.
+
+9.	Pengajuan Sewa Kamar
+	Calon penghuni dapat mengajukan permintaan sewa kamar melalui sistem. Admin akan memverifikasi pengajuan dan mengaktifkan tagihan pertama apabila disetujui.
+
 ## Cara Install Project
 
 Pastikan versi PHP >= 8.3
