@@ -81,6 +81,42 @@
 
     </div>
     <script src="{{ asset('js/apps.js') }}?v={{ time() }}"></script>
+
+    <script>
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+        e.preventDefault(); // Menghentikan tindakan default (tidak mengarahkan langsung ke halaman lain)
+
+        // Menampilkan konfirmasi SweetAlert2
+        Swal.fire({
+            title: 'Apakah Anda yakin ingin logout?',
+            text: "Anda akan keluar dari akun Anda.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Logout',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Membuat form logout secara dinamis
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '{{ route('logout') }}';
+
+                // Menambahkan CSRF token
+                var csrfToken = document.createElement('input');
+                csrfToken.type = 'hidden';
+                csrfToken.name = '_token';
+                csrfToken.value = '{{ csrf_token() }}'; // Menyertakan token CSRF
+
+                form.appendChild(csrfToken);
+
+                // Menambahkan form ke body dan mengirimkannya
+                document.body.appendChild(form);
+                form.submit(); // Mengirimkan form untuk logout
+            }
+        });
+    });
+</script>
 </body>
 @if(session('success'))
     <script>

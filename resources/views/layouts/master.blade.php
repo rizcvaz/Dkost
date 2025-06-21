@@ -56,19 +56,21 @@
 
 
       </ul>
-      <div class="nav-right">
-        @auth
-  <form action="{{ route('logout') }}">
-    @csrf
-    <button type="submit" class="login-btn" style="background-color: #dc3545;">
-      <i class='bx bx-log-out-circle' style="margin-right: 6px;"></i>Logout
+     <div class="nav-right">
+  @auth
+    <form action="{{ route('logout') }}" method="POST">
+      @csrf
+      <button type="submit" class="login-btn" style="background-color: #dc3545;">
+        <i class='bx bx-log-out-circle' style="margin-right: 6px;"></i>Logout
+      </button>
+    </form>
+  @else
+    <button class="login-btn" onclick="openPopup('login')">
+      <i class='bx bx-log-in-circle' style="margin-right: 6px;"></i>Login
     </button>
-  </form>
-@else
-  <button class="login-btn" onclick="openPopup('login')">
-    <i class='bx bx-log-in-circle' style="margin-right: 6px;"></i>Login
-  </button>
-@endauth
+  @endauth
+</div>
+
          
         <div class="hamburger" id="hamburger">
           <span></span><span></span><span></span>
@@ -108,5 +110,15 @@
     @yield('content')
   </main>
   @include('auth.popup') <!-- Popup login/register -->
+
+     <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Cek jika status logout ada di session
+    if ({{ session('logout') ? 'true' : 'false' }} === true) {
+      // Jika logout, refresh untuk menampilkan tombol login
+      location.reload();
+    }
+  });
+</script>
 </body>
 </html>

@@ -9,41 +9,43 @@ use Illuminate\Http\Request;
 
 class PenghuniController extends Controller
 {
-    // Tampilkan semua penghuni
+    // Menampilkan daftar semua penghuni
     public function index()
     {
         $penghuni = Penghuni::with('kamar')->get();
+        // dd($penghuni);
         return view('admin.penghuni', compact('penghuni'));
     }
 
-    // Tampilkan form tambah penghuni
+    // Menampilkan form tambah penghuni
     public function create()
     {
         $kamar = Kamar::where('status', 'Tersedia')->get();
         return view('admin.penghuni-create', compact('kamar'));
     }
 
-    // Simpan data penghuni baru
+    // Menyimpan data penghuni baru
     public function store(Request $request)
     {
         $request->validate([
-            'nik' => 'required|unique:penghuni,nik',
-            'nama_lengkap' => 'required',
-            'alamat' => 'required',
-            'no_hp' => 'required',
-            'email' => 'required|email',
+            'nik' => 'required|unique:penghunis,nik',
+            'nama_lengkap' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'no_hp' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
             'kamar_id' => 'required|exists:kamar,id',
         ]);
 
         $penghuni = Penghuni::create($request->all());
 
-        // Set kamar jadi "Terisi"
-        $penghuni->kamar->update(['status' => 'Terisi']);
+        // Update status kamar jadi "Terisi"
+        $kamar = Kamar::find($request->kamar_id);
+        $kamar->update(['status' => 'Terisi']);
 
-        return redirect()->route('penghuni.index')->with('success', 'Penghuni berhasil ditambahkan');
+        return redirect()->route('penghuni.index')->with('success', 'Penghuni berhasil ditambahkan.');
     }
 
-    // Tampilkan form edit
+    // Menampilkan form edit penghuni
     public function edit($id)
     {
         $penghuni = Penghuni::findOrFail($id);
@@ -51,43 +53,43 @@ class PenghuniController extends Controller
         return view('admin.penghuni-edit', compact('penghuni', 'kamar'));
     }
 
-    // Simpan perubahan data penghuni
+    // Menyimpan perubahan data penghuni
     public function update(Request $request, $id)
     {
         $penghuni = Penghuni::findOrFail($id);
 
         $request->validate([
-            'nik' => 'required|unique:penghuni,nik,' . $penghuni->id,
-            'nama_lengkap' => 'required',
-            'alamat' => 'required',
-            'no_hp' => 'required',
-            'email' => 'required|email',
+            'nik' => 'required|unique:penghunis,nik,' . $penghuni->id,
+            'nama_lengkap' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'no_hp' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
             'kamar_id' => 'required|exists:kamar,id',
         ]);
 
-        // Update status kamar sebelumnya menjadi "Tersedia" jika kamar berubah
+        // Update status kamar lama jadi tersedia jika berubah
         if ($penghuni->kamar_id != $request->kamar_id) {
-            $penghuni->kamar->update(['status' => 'Tersedia']);
+            Kamar::find($penghuni->kamar_id)->update(['status' => 'Tersedia']);
             Kamar::find($request->kamar_id)->update(['status' => 'Terisi']);
         }
 
         $penghuni->update($request->all());
 
-        return redirect()->route('penghuni.index')->with('success', 'Data penghuni berhasil diperbarui');
+        return redirect()->route('penghuni.index')->with('success', 'Data penghuni berhasil diperbarui.');
     }
 
-    // Hapus data penghuni
+    // Menghapus penghuni
     public function destroy($id)
     {
         $penghuni = Penghuni::findOrFail($id);
 
-        // Kembalikan status kamar menjadi "Tersedia"
+        // Kembalikan status kamar menjadi tersedia
         if ($penghuni->kamar) {
             $penghuni->kamar->update(['status' => 'Tersedia']);
         }
 
         $penghuni->delete();
 
-        return redirect()->route('penghuni.index')->with('success', 'Penghuni berhasil dihapus');
+        return redirect()->route('penghuni.index')->with('success', 'Penghuni berhasil dihapus.');
     }
 }

@@ -4,7 +4,7 @@
 <div class="container">
     <h2 style="color: #fff;">Form Pemesanan Kamar {{ $kamar->nomor_kamar }}</h2>
 
-    <form action="{{ url('/pesan-kamar/' . $kamar->id) }}" method="POST" style="background: #272734; padding: 20px; border-radius: 10px;">
+    <form action="{{ route('pesan.kamar.store', $kamar->id) }}" method="POST" style="background: #272734; padding: 20px; border-radius: 10px;">
         @csrf
 
         <div class="form-group">
@@ -32,7 +32,7 @@
             <input type="email" name="email" class="form-control" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Kirim Pemesanan</button>
+        <button type="submit" class="btn btn-primary">Checkout kamar</button>
     </form>
 </div>
 @endsection

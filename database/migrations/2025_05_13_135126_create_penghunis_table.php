@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('no_hp');
             $table->string('email');
+            $table->string('status')->default('Aktif');
             $table->timestamps();
 
     $table->foreign('kamar_id')->references('id')->on('kamar')->onDelete('cascade');

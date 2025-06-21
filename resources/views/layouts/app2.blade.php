@@ -20,7 +20,7 @@
         </a>
         <ul class="side-menu">
         <li><a href="#"><i class='bx bx-home'></i> <span>Beranda</span></a></li>
-        <li><a href="{{ route('kamar.index') }}"><i class='bx bx-bed'></i> <span>Kamar Kost</span></a></li>
+        <li><a href="{{ route('user.kamar') }}"><i class='bx bx-bed'></i> <span>Kamar Kost</span></a></li>
         <li><a href="#"><i class='bx bx-group'></i> <span>Data diri</span></a></li>
         <li><a href="#"><i class='bx bx-receipt'></i> <span>Tagihan</span></a></li>
         <li><a href="#"><i class='bx bx-message-square-dots'></i> <span>Komplain</span></a></li>

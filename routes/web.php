@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\KamarController;
 use App\Http\Controllers\Admin\PenghuniController;
 use App\Http\Controllers\PesanKamarController;
 use App\Http\Controllers\CariKamarController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\MidtransWebhookController;
 
 
 // Landing Page (Home)
@@ -36,7 +38,7 @@ Route::get('/contact', function () {
 // Auth process
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Dashboard (protected)
 Route::aliasMiddleware('role', RoleMiddleware::class);
@@ -75,4 +77,25 @@ Route::get('/cari-kamar', [CariKamarController::class, 'index'])->name('cari-kam
 
 Route::get('/pesan-kamar/{id}', [PesanKamarController::class, 'form'])->name('pesan.kamar');
 Route::post('/pesan-kamar/{id}', [PesanKamarController::class, 'store'])->name('pesan.kamar.store');
+
+
+
+Route::post('/checkout/{id}', [CheckoutController::class, 'process'])->name('checkout.kamar');
+
+Route::post('/midtrans/callback', [CheckoutController::class, 'callback'])
+    ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]);
+
+
+// Route::post('/midtrans/webhook', [MidtransWebhookController::class, 'handle']);
+
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/user/kamar', [App\Http\Controllers\User\KamarController::class, 'index'])->name('user.kamar');
+});
+
+
+
+
+
+
+
 

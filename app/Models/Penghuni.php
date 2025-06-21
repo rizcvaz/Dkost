@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Penghuni extends Model
 {
     protected $fillable = [
-        'nik', 'nama_lengkap', 'alamat', 'no_hp', 'email', 'kamar_id'
+        'kamar_id', 'nik', 'nama_lengkap', 'alamat', 'no_hp', 'email', 'status'
     ];
 
     public function kamar()
@@ -15,5 +15,6 @@ class Penghuni extends Model
         return $this->belongsTo(Kamar::class);
     }
 }
+
 
 
